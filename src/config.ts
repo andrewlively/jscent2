@@ -1,6 +1,6 @@
 export interface ConfigParams {
   url?: string;
-  token?: string;
+  token: string;
   timeout?: number;
 }
 
@@ -11,7 +11,7 @@ export class Config {
   public timeout: number;
 
   constructor(options?: ConfigParams) {
-    options = options || {};
+    options = options || { token: "", url: "" };
 
     let url = options.url || "";
 
@@ -30,8 +30,8 @@ export class Config {
     }
 
     this.url = url;
-    this.token = options.token;
-    this.timeout = options.timeout;
+    this.token = options.token || "";
+    this.timeout = options.timeout || 10000;
   }
 
 }
