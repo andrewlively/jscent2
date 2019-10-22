@@ -1,0 +1,36 @@
+{
+  "name": "jscent2",
+  "version": "0.1.0",
+  "description": "JS (TS) Client for Centrifugo HTTP API",
+  "main": "build/index.js",
+  "repository": "https://github.com/andrewlively/jscent",
+  "author": "Andrew Lively <andrew@lively.software>",
+  "license": "MIT",
+  "scripts": {
+    "compile": "./node_modules/.bin/tsc",
+    "lint": "./node_modules/.bin/tslint -c tslint.json --fix 'src/**/*.ts'",
+    "prettier": "./node_modules/.bin/prettier src/**/*.ts --write",
+    "test": "npm run lint && npm run compile",
+    "postinstall": "npm run compile",
+    "prepublish": "npm run compile"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run prettier && git add -A"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/node": "^12.11.2",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "prettier": "^1.18.2",
+    "tslint": "^5.20.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-microsoft-contrib": "^6.2.0",
+    "typescript": "^3.7.0-beta"
+  }
+}
